@@ -14,3 +14,6 @@
     height: 18vw;
     object-fit: cover;
     }
+.price_over_hundred{
+    color: red;
+}
