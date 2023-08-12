@@ -73,6 +73,7 @@ class ProductShowView(View):
 class ProductForm(forms.Form):
     name = forms.CharField(required=True)
     price = forms.FloatField(required=True)
+    description = forms.CharField(required=False)
 
     def clean_price(self):
         price = self.cleaned_data['price']
@@ -96,6 +97,9 @@ class ProductCreateView(View):
         viewData = {}
         viewData["form"] = form.data
         if form.is_valid():
+            #print(form.data['name'])
+            id = len(Product.products)+1
+            Product.products.append({"id":id, "name":form.data['name'], "description":form.data['description'], "price":int(form.data['price'])})
             return render(request,self.created_product,viewData)
         else:
             viewData = {}
