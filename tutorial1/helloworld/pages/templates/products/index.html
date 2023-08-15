@@ -10,7 +10,7 @@
 <div class="card-body text-center">
 <a href="{% url 'show' id=product.id %}"
 class="btn bg-primary text-white">{{product.name}}</a>
-{% if product.price > 100 %}
+{% if product.price > 4000 %}
     <h5 class="text-danger">{{product.price}}$</h5>
 {%else%}
     <h5 class="text-primary">{{product.price}}$</h5>
